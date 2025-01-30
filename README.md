@@ -2,18 +2,18 @@
 
 ## Overview
 
-PokeApp is a web application that allows users to search for Pokemon using the PokeAPI. It provides an intuitive interface to search, view, and explore Pokémon details. The app is built using the MERN (MongoDB, Express, React, Node.js) stack.
+PokeApp is a web application that allows users to search for Pokemon using the PokeAPI. It provides an intuitive interface to search, view, and explore Pokemon details. The app is built using the MERN (MongoDB, Express, React, Node.js) stack.
 
 ## Features
 
 - **Homepage:**
-  - Search bar to find Pokémon by name.
-  - A random Pokémon card displayed daily per user.
+  - Search bar to find Pokemon by name.
+  - A random Pokemon card displayed daily per user.
 - **Search Results Page:**
-  - Displays a list of Pokémon matching the user’s search.
+  - Displays a list of Pokemon matching the user’s search.
   - Searches in the database first; if not found, fetches from PokeAPI.
 - **Details Page:**
-  - Displays all attributes of a selected Pokémon.
+  - Displays all attributes of a selected Pokemon.
   - Searches in the database first; if not found, fetches from PokeAPI.
 
 ## Tech Stack
