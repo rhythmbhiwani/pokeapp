@@ -1,67 +1,30 @@
 "use client";
 
-import { useEffect, useState, ChangeEvent, FormEvent } from "react";
-import { Button } from "@repo/ui/button";
-
-const API_HOST = process.env.NEXT_PUBLIC_API_HOST || "http://localhost:3001";
+import FullPageLoadingSpinner from "@/components/full-page-loading-spinner";
+import SearchBar from "@/components/search-bar";
+import { useFetchRandomPokemon } from "@/hooks/useFetchRandomPokemon";
+import Image from "next/image";
 
 export default function Web() {
-  const [name, setName] = useState<string>("");
-  const [response, setResponse] = useState<{ message: string } | null>(null);
-  const [error, setError] = useState<string | undefined>();
+  const { data, isLoading } = useFetchRandomPokemon();
 
-  useEffect(() => {
-    setResponse(null);
-    setError(undefined);
-  }, [name]);
+  if (isLoading) {
+    return <FullPageLoadingSpinner />;
+  }
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setName(e.target.value);
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    try {
-      const result = await fetch(`${API_HOST}/message/${name}`);
-      const response = await result.json();
-      setResponse(response);
-    } catch (err) {
-      console.error(err);
-      setError("Unable to fetch response");
-    }
-  };
-
-  const onReset = () => {
-    setName("");
-  };
+  const image =
+    data?.sprites?.other["official-artwork"]?.front_default ||
+    data?.sprites?.front_default;
 
   return (
-    <div>
-      <h1>Web</h1>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="name">Name </label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={name}
-          onChange={onChange}
-        ></input>
-        <Button type="submit">Submit</Button>
-      </form>
-      {error && (
-        <div>
-          <h3>Error</h3>
-          <p>{error}</p>
-        </div>
+    <section className="w-full h-full mt-10 flex-col space-y-10 flex items-center justify-center p-10">
+      {image && <Image width={250} height={250} src={image} alt={data.name} />}
+      {data && (
+        <span>
+          A <span className="font-bold">{data.name}</span> has appeared
+        </span>
       )}
-      {response && (
-        <div>
-          <h3>Greeting</h3>
-          <p>{response.message}</p>
-          <Button onClick={onReset}>Reset</Button>
-        </div>
-      )}
-    </div>
+      <SearchBar />
+    </section>
   );
 }

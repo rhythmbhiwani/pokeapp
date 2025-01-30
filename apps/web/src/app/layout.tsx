@@ -1,5 +1,10 @@
+import Header from "@/components/header";
 import "./globals.css";
 import Providers from "@/components/providers";
+
+export const metadata = {
+  title: "PokeApp",
+};
 
 export default function RootLayout({
   children,
@@ -9,7 +14,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <div className="">
+          <Header />
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   );
