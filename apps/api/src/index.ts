@@ -11,7 +11,7 @@ const server = createServer();
 
 mongoose
   .connect(process.env.MONGO_URI as string)
-  .then(() => console.log("MongoDB Connected"))
+  .then(() => log("MongoDB Connected"))
   .catch((err) => console.error(err));
 
 server.use("/pokemon", pokemonRouter);

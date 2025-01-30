@@ -1,11 +1,11 @@
-import { isDevelopment, isProduction } from "@/constants/environment";
-import DailyPokemon from "@/data/modals/DAILY_POKEMON";
-import Pokemon from "@/data/modals/POKEMON";
-import { fetchAllPokemons, fetchPokemon } from "@/helper/fetchPokemon";
 import { IPokemon } from "@repo/shared-types";
 import { Router } from "express";
 import moment from "moment";
 import { v4 as uuidv4 } from "uuid";
+import { isDevelopment, isProduction } from "../constants/environment";
+import DailyPokemon from "../data/modals/DAILY_POKEMON";
+import Pokemon from "../data/modals/POKEMON";
+import { fetchAllPokemons, fetchPokemon } from "../helper/fetchPokemon";
 
 const pokemonRouter = Router();
 
