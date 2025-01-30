@@ -1,3 +1,5 @@
+"use client";
+
 import FullPageLoadingSpinner from "@/components/full-page-loading-spinner";
 import { useSearchPokemon } from "@/hooks/useSearchPokemon";
 import { useSearchParams } from "next/navigation";

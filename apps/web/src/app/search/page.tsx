@@ -1,13 +1,12 @@
-"use client";
-
 import SearchBar from "@/components/search-bar";
 import SearchList from "@/components/search-list";
-import { useSearchParams } from "next/navigation";
 
-export default function SearchPage() {
-  const searchParams = useSearchParams();
-
-  const query = searchParams.get("query");
+export default async function SearchPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const query = (await searchParams).query as string;
 
   return (
     <div>

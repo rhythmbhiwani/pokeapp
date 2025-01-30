@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
