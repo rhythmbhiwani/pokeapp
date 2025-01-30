@@ -46,7 +46,6 @@ export function PokemonDetails({ pokemon }: PokemonDetailsProps) {
             width={250}
             height={250}
             className="object-contain drop-shadow-lg"
-            unoptimized
           />
           <Select value={activeSprite} onValueChange={setActiveSprite}>
             <SelectTrigger className="mt-4 w-60 border-gray-300 shadow-sm rounded-lg">

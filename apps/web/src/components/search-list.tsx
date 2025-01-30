@@ -60,7 +60,6 @@ function SearchList() {
                         width={120}
                         height={120}
                         className="mx-auto mb-2"
-                        unoptimized
                       />
                     )}
                     <h3 className="text-xl font-semibold text-center capitalize">

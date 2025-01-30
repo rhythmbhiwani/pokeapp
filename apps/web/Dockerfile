@@ -15,6 +15,7 @@ RUN turbo prune web --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM base AS installer
+ENV NEXT_PUBLIC_API_BASE_URL ''
 RUN apk update
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -36,6 +37,8 @@ COPY --from=builder /app/out/full/ .
 RUN yarn turbo build
 
 FROM base AS runner
+ENV NEXT_PUBLIC_API_BASE_URL ''
+
 WORKDIR /app
 
 # Don't run production as root
