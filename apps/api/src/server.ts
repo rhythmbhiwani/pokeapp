@@ -13,7 +13,7 @@ export const createServer = (): Express => {
     .use(json())
     .use(
       cors({
-        origin: "http://localhost:3000",
+        origin: ["http://localhost:3000", "https://pokeapp.rhythmbhiwani.in"],
         credentials: true,
       })
     )
